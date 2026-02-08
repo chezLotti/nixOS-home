@@ -6,7 +6,6 @@ let
     sha256 = "1kqxy6r4ahnbazmpa4pncdp62najdikdaw8hvrv8nl6qxvbmf9fy";
   };
 in
-
 {
   imports = [
     (import "${home-manager}/nixos")

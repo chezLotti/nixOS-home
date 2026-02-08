@@ -23,5 +23,4 @@ in
     fish.shellAliases = baseAliases;
     zsh.shellAliases = baseAliases;
   };
- 
 }

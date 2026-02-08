@@ -5,7 +5,7 @@
 		nixpkgs.url = "nixpkgs/nixos-25.11";
 	};
 
-	outputs = {self, nixpkgs, home-manager, ...}: 
+	outputs = {self, nixpkgs, ...}:
 		let 
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -16,6 +16,11 @@
 			hostname = "nixos";
 			locale = "de_DE.UTF-8";
 			timezone = "Europe/Berlin";
+
+			home-manager = builtins.fetchTarball {
+        url = "https://github.com/nix-community/home-manager/archive/release-${stateVersion}.tar.gz";
+        sha256 = "1kqxy6r4ahnbazmpa4pncdp62najdikdaw8hvrv8nl6qxvbmf9fy";
+      };
 		in {
 	
 		nixosConfigurations = {
@@ -28,18 +33,9 @@
 					inherit locale;
 					inherit timezone;
 					inherit stateVersion;
+					inherit home-manager;
 				};
 			};
 		};
-		#homeConfigurations = {
-		#	charlotte = home-manager.lib.homeManagerConfiguration {
-		#		inherit pkgs;
-		#		modules = [ ./home.nix ];
-		#		extraSpecialArgs = {
-		#			inherit username;
-		#			inherit stateVersion;
-		#		};
-		#	};
-		#};
 	};
 }

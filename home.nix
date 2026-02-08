@@ -1,14 +1,9 @@
-{ config, pkgs, username, stateVersion, ... }:
+{ config, pkgs, username, stateVersion, home-manager, ... }:
 
-let
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-${stateVersion}.tar.gz";
-    sha256 = "1kqxy6r4ahnbazmpa4pncdp62najdikdaw8hvrv8nl6qxvbmf9fy";
-  };
-in
+
 {
   imports = [
-    (import "${home-manager}/nixos")
+
     ./hyprland.nix
   ]; 
   home-manager.backupFileExtension = "backup";

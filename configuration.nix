@@ -44,7 +44,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking = {
-    hostname = hostname;
+    hostName = hostname;
     networkmanager.enable = true;
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";

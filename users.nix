@@ -1,15 +1,7 @@
-{ config, pkgs, lib, username, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-	users.users.${username} = {
-    isNormalUser = true;
-    description = username;
-    shell = lib.mkForce pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "input" ];
-    packages = with pkgs; [
-      neovim
-      chezmoi
-      hyfetch
-    ];
-  };
+	imports = [
+		./home/charlotte.nix
+	];
 }

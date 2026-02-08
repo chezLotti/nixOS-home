@@ -1,4 +1,4 @@
-{ config, pkgs, stateVersion, ... }:
+{ config, pkgs, systemSettings, ... }:
 
 {
 	# Enable the X11 windowing system.
@@ -37,5 +37,5 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  system.stateVersion = stateVersion;
+  system.stateVersion = systemSettings.stateVersion;
 }

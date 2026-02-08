@@ -2,8 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, username, hostname, locale, timezone, stateVersion, home-manager, ... }:
+{ config, pkgs, systemSettings, home-manager, ... }:
 
+let
+	locale = systemSettings.locale;
+in
 {
   imports =
     [
@@ -11,7 +14,6 @@
 			(import "${home-manager}/nixos")
       ./services.nix
       ./systemPackages.nix
-      ./home.nix
       ./hyprland-base.nix
       ./fonts.nix
       ./users.nix
@@ -45,7 +47,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking = {
-    hostName = hostname;
+    hostName = systemSettings.hostname;
     networkmanager.enable = true;
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
@@ -57,7 +59,7 @@
     # firewall.enable = false;
   };
 
-  time.timeZone = timezone;
+  time.timeZone = systemSettings.timezone;
 
   # Select internationalisation properties.
   i18n.defaultLocale = locale;

@@ -1,16 +1,27 @@
-{ config, pkgs, username, stateVersion, home-manager, ... }:
+{ config, lib, pkgs, systemSettings, home-manager, ... }:
 
 
 {
-  imports = [
+  imports = [];
 
-    ./hyprland.nix
-  ]; 
+
+	users.users."charlotte" = {
+    isNormalUser = true;
+    description = "Charlotte";
+    shell = lib.mkForce pkgs.fish;
+    extraGroups = [ "networkmanager" "wheel" "input" ];
+    packages = with pkgs; [
+      neovim
+      chezmoi
+      hyfetch
+    ];
+  };
+
   home-manager.backupFileExtension = "backup";
 
-  home-manager.users.${username} = {
-	  home.username = username;
-	  home.homeDirectory = "/home/"+username;
+  home-manager.users."charlotte" = {
+	  home.username = "charlotte";
+	  home.homeDirectory = "/home/charlotte";
 
 	  programs.git = {
 	    enable = true;
@@ -28,7 +39,17 @@
       systemd.enable = false;
       systemd.variables = ["--all"];
     };
-    programs.kitty.enable = true;
+    programs.kitty = {
+      enable = true;
+      settings = {
+        include = "mocha-theme.conf";
+        font_family = "Victor Mono";
+        bold_font = "auto";
+        italic_font = "auto";
+        bold_italic_font = "auto";
+        font_size = "12";
+      };
+    };
 
 	  # This value determines the Home Manager release that your configuration is
 	  # compatible with. This helps avoid breakage when a new Home Manager release
@@ -37,7 +58,7 @@
 	  # You should not change this value, even if you update Home Manager. If you do
 	  # want to update the value, then make sure to first check the Home Manager
 	  # release notes.
-	  home.stateVersion = stateVersion; # Please read the comment before changing.
+	  home.stateVersion = systemSettings.stateVersion; # Please read the comment before changing.
 
 	  # The home.packages option allows you to install Nix packages into your
 	  # environment.

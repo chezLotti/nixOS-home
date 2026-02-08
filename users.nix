@@ -7,8 +7,9 @@
     shell = lib.mkForce pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
-    #  kdePackages.kate
-    #  thunderbird
+      neovim
+      chezmoi
+      hyfetch
     ];
   };
 }

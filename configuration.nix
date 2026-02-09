@@ -18,6 +18,7 @@ in
       ./fonts.nix
       ./users.nix
       ./shells.nix
+      ./gaming.nix
     ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

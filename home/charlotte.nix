@@ -16,6 +16,8 @@ in
       neovim
       chezmoi
       hyfetch
+      pinta
+      wpaperd
     ];
   };
 
@@ -44,7 +46,7 @@ in
     programs.kitty = {
       enable = true;
       settings = {
-        include = "mocha-theme.conf";
+        include = "goth-theme.conf";
         font_family = "Victor Mono";
         bold_font = "auto";
         italic_font = "auto";

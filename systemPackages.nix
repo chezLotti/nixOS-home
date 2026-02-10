@@ -13,5 +13,8 @@
     discord
     remmina
     zoom-us
+    zip
+    unzip
+    gnutar
   ];
 }

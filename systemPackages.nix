@@ -16,5 +16,6 @@
     zip
     unzip
     gnutar
+    pavucontrol
   ];
 }

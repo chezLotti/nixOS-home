@@ -18,6 +18,8 @@ in
       hyfetch
       pinta
       wpaperd
+      discord
+      libreoffice
     ];
   };
 

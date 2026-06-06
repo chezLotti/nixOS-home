@@ -12,10 +12,10 @@
     jetbrains.idea
     discord
     remmina
-    zoom-us
     zip
     unzip
     gnutar
     pavucontrol
+    nodejs_24
   ];
 }

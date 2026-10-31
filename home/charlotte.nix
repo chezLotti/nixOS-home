@@ -10,7 +10,7 @@ in
 	users.users.${username} = {
     isNormalUser = true;
     description = username;
-    shell = lib.mkForce pkgs.fish;
+    shell = lib.mkForce pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       neovim

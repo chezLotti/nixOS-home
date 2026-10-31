@@ -11,7 +11,7 @@
 			pkgs = nixpkgs.legacyPackages.${system};
 			system = "x86_64-linux";
 			systemSettings = {
-				hostname = "imusingnixbtw";
+				hostname = "nixos";
 				stateVersion = "25.11";
         locale = "de_DE.UTF-8";
         timezone = "Europe/Berlin";

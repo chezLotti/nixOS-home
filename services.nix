@@ -12,7 +12,7 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
-    variant = "neo_qwertz";
+    variant = "de";
   };
 
   # Enable CUPS to print documents.

@@ -11,7 +11,7 @@
 			pkgs = nixpkgs.legacyPackages.${system};
 			system = "x86_64-linux";
 			systemSettings = {
-				hostname = "nixos";
+				hostname = "imusingnixbtw";
 				stateVersion = "25.11";
         locale = "de_DE.UTF-8";
         timezone = "Europe/Berlin";
@@ -19,7 +19,7 @@
 
 			home-manager = builtins.fetchTarball {
         url = "https://github.com/nix-community/home-manager/archive/release-${systemSettings.stateVersion}.tar.gz";
-        sha256 = "1kqxy6r4ahnbazmpa4pncdp62najdikdaw8hvrv8nl6qxvbmf9fy";
+        sha256 = "13fmry1jd0na71fxhzms9qf3ybj6shgvnphq4p1akxxmv44gzq20";
       };
 		in {
 	

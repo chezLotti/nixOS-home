@@ -17,5 +17,6 @@
     gnutar
     pavucontrol
     nodejs_24
+    pnpm
   ];
 }

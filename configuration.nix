@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, systemSettings, home-manager, ... }:
 
 let
@@ -40,12 +36,10 @@ in
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   networking = {
     hostName = systemSettings.hostname;
@@ -76,22 +70,12 @@ in
     LC_TIME = locale;
   };
 
-  # Configure console keymap
-  console.keyMap = "neoqwertz";
+  console.keyMap = "de";
 	security.rtkit.enable = true;
   programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   environment.sessionVariables = {
-    #WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 }

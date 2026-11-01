@@ -3,15 +3,16 @@
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-25.11";
+    forticlient-nixos.url = "github:jplana/forticlient-nixos";
 	};
 
-	outputs = {self, nixpkgs, ...}:
+	outputs = {self, nixpkgs, forticlient-nixos, ...}:
 		let 
 			lib = nixpkgs.lib;
 			pkgs = nixpkgs.legacyPackages.${system};
 			system = "x86_64-linux";
 			systemSettings = {
-				hostname = "nixos";
+				hostname = "imusingnixbtw";
 				stateVersion = "25.11";
         locale = "de_DE.UTF-8";
         timezone = "Europe/Berlin";
@@ -24,9 +25,17 @@
 		in {
 	
 		nixosConfigurations = {
-			nixos = lib.nixosSystem {
+			imusingnixbtw = lib.nixosSystem {
 				inherit system;
-				modules = [ ./configuration.nix ];
+				modules = [
+          forticlient-nixos.nixosModules.forticlient
+          ({ ... }: {
+            services.forticlient.enable = true;
+            # Auto-unlock the keyring on login — use your display manager:
+            #services.forticlient.gnomeKeyring.pamServices = [ "login" "sddm" ];
+          })
+          ./configuration.nix
+        ];
 				specialArgs = {
 					inherit systemSettings;
 					inherit home-manager;
@@ -35,3 +44,4 @@
 		};
 	};
 }
+

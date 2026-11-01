@@ -44,19 +44,10 @@ in
   networking = {
     hostName = systemSettings.hostname;
     networkmanager.enable = true;
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-    # Open ports in the firewall.
-    # firewall.allowedTCPPorts = [ ... ];
-    # firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    # firewall.enable = false;
   };
 
   time.timeZone = systemSettings.timezone;
 
-  # Select internationalisation properties.
   i18n.defaultLocale = locale;
   i18n.extraLocaleSettings = {
     LC_ADDRESS = locale;

@@ -1,6 +1,40 @@
 {
   "nodes": {
+    "forticlient-nixos": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1781855918,
+        "narHash": "sha256-ethk92yiBxhf4YvMmBMxmWDjhMXny3IwbYhR+UxTdrw=",
+        "owner": "jplana",
+        "repo": "forticlient-nixos",
+        "rev": "e1c170ec952ddae24142684369674ec762f1eaa5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jplana",
+        "repo": "forticlient-nixos",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1735563628,
+        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1782847189,
         "narHash": "sha256-twXPFqFsrrY5r28Zh7Homgcp2gUMBgQ6WDS98Q/3xFI=",
@@ -17,7 +51,8 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "forticlient-nixos": "forticlient-nixos",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },
